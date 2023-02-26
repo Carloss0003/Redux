@@ -1,13 +1,20 @@
+import store from './src/store'
+import {NavigationContainer} from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { Routes } from './src/routes';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <Provider store={store}>
+        <NavigationContainer style={styles.container}>
+          <StatusBar style="auto" />
+          <Routes/>
+        </NavigationContainer>
+      </Provider> 
+    );
 }
 
 const styles = StyleSheet.create({
